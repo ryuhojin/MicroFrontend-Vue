@@ -1,0 +1,15 @@
+{
+  "presets": [
+    [
+      "@babel/preset-env",
+      {
+        // Tree Shaking을 위해 ESM 모듈이 CommonJS 형태로 변환되는 것을 방지합니다.
+        "modules": false,
+        // 실제 소스에서 사용된 ES6 이상의 표현식이나 자료구조에 대해서만 Polyfill을 추가합니다.
+        "useBuiltIns": "usage",
+        // 더이상 core-js 3미만의 버전은 지원하지 않으므로 해당 버전으로 설치하여 설정했습니다.
+        "corejs": 3
+      }
+    ]
+  ]
+}
