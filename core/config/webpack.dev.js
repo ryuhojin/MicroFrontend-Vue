@@ -1,5 +1,6 @@
 const { merge } = require("webpack-merge");
 const common = require("./webpack.common");
+const path = require("path");
 const port = 8081;
 module.exports = merge(common, {
   mode: "development",
@@ -13,7 +14,7 @@ module.exports = merge(common, {
   },
   output: {
     filename: "[name].[contenthash].js",
-    publicPath: "http://localhost:8081/",
+    path: path.resolve(__dirname, "dist"),
   },
   module: {
     rules: [

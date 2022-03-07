@@ -10,10 +10,12 @@ module.exports = {
       { test: /\.vue$/, use: "vue-loader" },
     ],
   },
+  entry: path.resolve(__dirname, "../src/index.js"),
   target: ["web", "es5"],
   plugins: [
     new HtmlWebpackPlugin({
-      template: "./public/index.html",
+      template: path.resolve(__dirname, "../public/index.html"),
+      filename: "index.html",
     }),
     new VueLoaderPlugin(),
     new ModuleFederationPlugin({
@@ -26,6 +28,11 @@ module.exports = {
       shared: {
         vue: {
           singleton: true,
+          eager: true,
+        },
+        vueRouter: {
+          singleton: true,
+          eager: true,
         },
       },
     }),
